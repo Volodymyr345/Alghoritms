@@ -1,0 +1,2 @@
+# Alghoritms
+Practicing with alghoritms
