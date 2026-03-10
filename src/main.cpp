@@ -9,7 +9,7 @@ int main(){
     
     arr.push_back(5);
     arr.push_back(9);
-    arr.push_back(4);
+    arr.push_back(1);
     arr.push_back(6);
     arr.push_back(1);
     arr.push_back(2);
@@ -18,13 +18,14 @@ int main(){
     // srt.bubbleSort(arr);
     // std::cout << arr;
 
-    srt.mergeSort(arr);
-    std::cout << "Merge sort: " << arr;
+    // srt.mergeSort(arr);
+    // std::cout << "Merge sort: " << arr;
 
 
 
-    srt.reverseBubbleSort(arr);
-    std::cout << arr;
+    // srt.reverseMergeSort(arr);
+    srt.selectionSort(arr);
+    std::cout << "Selection sort: "<< arr << std::endl;
 
 
 }

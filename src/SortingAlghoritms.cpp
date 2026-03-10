@@ -46,6 +46,7 @@ bool SortingAlghoritms::mergeSort(Array &arr){
     data.size = arr.get_size();
     if(data.size <= 1) return false;
     data.temp = new int[data.size];
+    
     mergeSorting(arr.get_arr(), data.temp,  0, data.size - 1);
     
     delete [] data.temp; 
@@ -79,6 +80,64 @@ void SortingAlghoritms::merge(int *arr, int *temp, size_t left, size_t mid, size
 
     for(size_t x = left; x <= right; x++)
         arr[x] = temp[x];
+}
+
+
+bool SortingAlghoritms::reverseMergeSort(Array &arr) {
+    data.size = arr.get_size();
+    data.temp = new int[data.size];
+    if(data.size <= 1) return false;
+
+    reverseMergeSorting(arr.get_arr(), data.temp, 0, data.size - 1);
+    delete [] data.temp;
+    return true;
+}
+
+void SortingAlghoritms::reverseMergeSorting(int *arr, int *temp, size_t left, size_t right) {
+   int mid = (left + right) / 2;
+   if(left >= right) return;
+   reverseMergeSorting(arr, temp, left, mid);
+   reverseMergeSorting(arr, temp, mid + 1, right);
+   reverseMerge(arr, temp, left, mid, right);
+}
+
+void SortingAlghoritms::reverseMerge(int *arr, int *temp, size_t left, size_t mid, size_t right) {
+    size_t i, k;
+    i = k = left;
+    size_t j = mid + 1;
+    while(i <= mid && j <= right) {
+        if(arr[i] >= arr[j]) 
+            temp[k++] = arr[i++];
+        else 
+            temp[k++] = arr[j++];
+    }
+
+    while(i <= mid)
+        temp[k++] = arr[i++];
+    while(j <= right)
+        temp[k++] = arr[j++];
+    
+    for(size_t x{}; x <= right; x++)
+        arr[x] = temp[x];
+}
+
+
+bool SortingAlghoritms::selectionSort(Array &arr) {
+    data.temp = arr.get_arr();
+    data.size = arr.get_size();
+    if(data.size <= 1) return false; // if size is less or equal to 1 then false
+    for(size_t i{}; i < data.size - 1; i++) {
+        int *min_elem = &data.temp[i]; // giving an address to the pointer
+        for(size_t k{i + 1}; k < data.size; k++)
+            if(data.temp[k] < *min_elem)
+                min_elem = &data.temp[k];
+        if(*min_elem != data.temp[i]){
+            int temp_element = data.temp[i];
+            data.temp[i] = *min_elem;
+            *min_elem = temp_element;
+        }
+    }
+    return true;
 }
 
 
