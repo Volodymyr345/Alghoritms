@@ -140,6 +140,22 @@ bool SortingAlghoritms::selectionSort(Array &arr) {
     return true;
 }
 
+bool SortingAlghoritms::insertionSort(Array &arr) {
+    data.temp = arr.get_arr(); // passing by pointer
+    data.size = arr.get_size();
+    if(data.size <= 1) return false;
+    for(size_t i = 1; i < data.size; i++) {
+        int key = data.temp[i]; // saving an element
+        int j = i - 1; // start from the element 0 then 1 and so on
+        while(j >= 0 && data.temp[j] > key) {
+            data.temp[j + 1] = data.temp[j]; 
+            j--;
+        }
+        data.temp[j + 1] = key;
+    }
+    return true;
+}
+
 
 
 

@@ -24,8 +24,9 @@ int main(){
 
 
     // srt.reverseMergeSort(arr);
-    srt.selectionSort(arr);
-    std::cout << "Selection sort: "<< arr << std::endl;
+    // srt.selectionSort(arr);
+    srt.insertionSort(arr);
+    std::cout << "Insert sort: "<< arr << std::endl;
 
 
 }

@@ -25,6 +25,10 @@ public:
     bool reverseMergeSort(Array &arr);
 
     bool selectionSort(Array &arr);
+
+    bool insertionSort(Array &arr);
+
+    
 };
 
 #endif 
