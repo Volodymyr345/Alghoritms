@@ -2,9 +2,9 @@
 #define ARRAY_H
 #include <cstddef>
 #include <iostream>
-class Array {
-    friend std::ostream &operator<<(std::ostream &os, Array& array);
-    
+#include "PrintableArr.h"
+class Array : 
+    public PrintableArr {
 private:
     int *arr;
     size_t size;
@@ -14,6 +14,8 @@ public:
     bool push_back(int num);
     int *get_arr();
     bool remove(size_t index);
+
+    void print(std::ostream &os) const override;
 
     int& operator[](size_t num);
 

@@ -51,16 +51,15 @@ bool Array::remove(size_t index) {
     return true;
 }
 
-std::ostream &operator<<(std::ostream &os, Array& array) {
-    if(array.arr != nullptr) {
-        for(size_t i{}; i < array.size; i++) {
-            os << *(array.arr + i) << " ";
+void Array::print(std::ostream &os) const {
+    if(arr != nullptr) {
+        for(size_t i{}; i < size; i++) {
+            os << *(arr + i) << " ";
         }
         os << std::endl;
     }else {
         os << "No elements" << std::endl;
     }
-    return os;
 }
 
 int& Array::operator[](size_t num) {
